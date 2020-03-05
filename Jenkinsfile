@@ -21,6 +21,9 @@ parallel("exec 1": {
                 ]
             ])
             }
+          cleanWs {
+              cleanWhenSuccess(true)
+          }
            }
          }
         },
