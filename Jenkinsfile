@@ -19,10 +19,10 @@ node {
             ]
         ])
 
-        checkout ([
+       /* checkout ([
             $class: 'GitSCM',
             branches: [[name: '*/master']],
-            extensions: [
+           /* extensions: [
                 [$class: 'CheckoutOption', timeout: 30] ,
                 [$class: 'CloneOption', timeout: 30] ,
                 [$class: 'PruneStaleBranch'],
@@ -35,5 +35,5 @@ node {
                 ]
             ]
         ])
-    }
+    } */
 }
