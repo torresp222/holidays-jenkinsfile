@@ -23,12 +23,11 @@ parallel("exec 1": {
             ])
          def workspace = env.WORKSPACE
          echo "workspace directory is ${workspace}"
-            }
+            } 
+         }
          stage('Borrar checkout'){
-           sh "rm -rf ${jenkinspath}"
-         }
-            
-         }
+            sh "rm -rf /var/lib/jenkins/${env.JOB_NAME}-1"
+          }
          }
         },
             "exec 2": {
