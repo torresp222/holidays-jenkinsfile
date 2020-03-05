@@ -39,11 +39,11 @@ node {
                 sh "scp -r ${BUILD_ID}.tar.gz $user@$host:$base_path/releasesback/${BUILD_ID}/"
                 sh "ssh $user@$host \"tar -xzvf $base_path/releasesback/${BUILD_ID}/${BUILD_ID}.tar.gz -C $base_path/releasesback/${BUILD_ID}/\""
             }*/
-         }
+         //}
          /*stage('Borrar checkout'){
             sh "rm -rf /var/lib/jenkins/${env.JOB_NAME}-1"
           }*/
-         }
+         //}
         //},
           //  "exec 2": {
        // node {
@@ -69,8 +69,8 @@ node {
                        ]
                     ]
                         ])
-                        }
-                       }
+       }
+    }
                 //    }
               //  }
   // )
