@@ -21,8 +21,11 @@ parallel("exec 1": {
                 ]
             ])
             }
-          cleanWs {
-              cleanWhenSuccess(true)
+          stage('Borrar checkout') {
+              script{
+                  sh 'rm -rf ${WORKSPACE}'
+              }
+             
           }
            }
          }
