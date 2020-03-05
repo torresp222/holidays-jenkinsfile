@@ -1,5 +1,5 @@
 #!groovy?
-parallel("stream 1": {    
+parallel("exec 1": {    
     node {
         ws("${env.JOB_NAME}-1") {
         stage('Checkout') { // for display purposes
@@ -24,7 +24,7 @@ parallel("stream 1": {
            }
          }
         },
-            "stream 2": {
+            "exec 2": {
                 node {
                     ws("${env.JOB_NAME}-2") {
                     stage('Checkout') {
