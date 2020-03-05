@@ -2,11 +2,12 @@
 parallel("exec 1": {    
     node {
         ws("${env.JOB_NAME}-1") {
+        
+        stage('Checkout') { // for display purposes     
+            // Get some code from a GitHub repository
         environment {
            JENKINS_PATH = sh(script: 'pwd', , returnStdout: true).trim()  
         }
-        stage('Checkout') { // for display purposes     
-            // Get some code from a GitHub repository
             checkout ([
                 $class: 'GitSCM',
                 branches: [[name: '*/es6']],
