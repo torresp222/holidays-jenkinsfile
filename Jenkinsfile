@@ -26,12 +26,11 @@ parallel("exec 1": {
             } 
             
           }
-        publishers {
           cleanWs { // Clean after build
              cleanWhenSuccess(true)
              deleteDirs(true)
           }
-        }
+        
 
          }
         },
