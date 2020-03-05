@@ -23,13 +23,16 @@ parallel("exec 1": {
                     ]
                 ]
             ])
-            }  
-            stage('Borrar checkout'){
-                script{
-                    sh 'rm -rf ${JENKINS_PATH}'
-                }
-            }
+            } 
+            
           }
+        publishers {
+          cleanWs { // Clean after build
+             cleanWhenSuccess(true)
+             deleteDirs(true)
+        }
+    }
+}
          }
         },
             "exec 2": {
