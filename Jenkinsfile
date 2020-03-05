@@ -1,6 +1,7 @@
 #!groovy?
 parallel("exec 1": {    
     node {
+        def pwd = env.WORKSPACE
         ws("${env.JOB_NAME}-1") {
         def jenkinspath = env.WORKSPACE
         stage('Checkout') { // for display purposes     
@@ -22,6 +23,7 @@ parallel("exec 1": {
                 ]
             ])
          def workspace = env.WORKSPACE
+         echo "First workspace directory is ${pwd}"
          echo "workspace directory is ${workspace}"
             } 
          }
