@@ -27,12 +27,25 @@ parallel("exec 1": {
             
           }
           cleanWs { // Clean after build
-             cleanWhenSuccess(true)
-             cleanWhenFailure(true)
-             deleteDirs(true)
+            cleanWhenAborted(true)
+            cleanWhenFailure(true)
+            cleanWhenNotBuilt(false)
+            cleanWhenSuccess(true)
+            cleanWhenUnstable(true)
+            deleteDirs(true)
+            notFailBuild(true)
+            disableDeferredWipeout(true)
+            patterns {
+                pattern {
+                    type('EXCLUDE')
+                    pattern('.propsfile')
+                }
+                pattern {
+                    type('INCLUDE')
+                    pattern('.gitignore')
+                }
+            }
           }
-        
-
          }
         },
             "exec 2": {
