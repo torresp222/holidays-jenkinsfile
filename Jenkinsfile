@@ -28,6 +28,7 @@ parallel("exec 1": {
           }
           cleanWs { // Clean after build
              cleanWhenSuccess(true)
+             cleanWhenFailure(true)
              deleteDirs(true)
           }
         
