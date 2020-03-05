@@ -9,9 +9,9 @@ parallel("stream 1": {
                 branches: [[name: '*/es6']],
                 extensions: [
                     [$class: 'CheckoutOption', timeout: 30] ,
-                    [$class: 'CloneOption', timeout: 30] //,
-                    //[$class: 'PruneStaleBranch'],
-                    //[$class: 'CleanCheckout']
+                    [$class: 'CloneOption', timeout: 30] ,
+                    [$class: 'PruneStaleBranch'],
+                    [$class: 'CleanCheckout']
                 ],
                 userRemoteConfigs: [
                     [
@@ -33,9 +33,9 @@ parallel("stream 1": {
                             branches: [[name: '*/master']],
                             extensions: [
                                 [$class: 'CheckoutOption', timeout: 30] ,
-                                [$class: 'CloneOption', timeout: 30] //,
-                                //[$class: 'PruneStaleBranch'],
-                                //[$class: 'CleanCheckout']
+                                [$class: 'CloneOption', timeout: 30] ,
+                                [$class: 'PruneStaleBranch'],
+                                [$class: 'CleanCheckout']
                             ],
                             userRemoteConfigs: [
                                 [
