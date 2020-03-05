@@ -20,13 +20,12 @@ parallel("exec 1": {
                     ]
                 ]
             ])
-            }
-          stage('Borrar checkout') {
+            }   
+          }
+        stage('Borrar checkout') {
               script{
                   sh 'rm -rf ${env.JOB_NAME}-1'
               }
-             
-          }
            }
          }
         },
