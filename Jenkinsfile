@@ -23,7 +23,7 @@ parallel("exec 1": {
             }
           stage('Borrar checkout') {
               script{
-                  sh 'rm -rf ${WORKSPACE}'
+                  sh 'rm -rf ${env.JOB_NAME}-1'
               }
              
           }
