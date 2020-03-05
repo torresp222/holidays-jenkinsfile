@@ -1,6 +1,6 @@
 #!groovy?
 parallel("stream 1": {    
-    node('node1') {
+    node {
         ws("${env.JOB_NAME}-stream1") {
         stage('Checkout') { // for display purposes
             // Get some code from a GitHub repository
@@ -25,7 +25,7 @@ parallel("stream 1": {
          }
         },
             "stream 2": {
-                node('node2') {
+                node {
                     ws("${env.JOB_NAME}-stream2") {
                     stage('Checkout') {
                          checkout ([
