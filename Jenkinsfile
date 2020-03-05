@@ -30,9 +30,9 @@ parallel("exec 1": {
           cleanWs { // Clean after build
              cleanWhenSuccess(true)
              deleteDirs(true)
+          }
         }
-    }
-}
+
          }
         },
             "exec 2": {
