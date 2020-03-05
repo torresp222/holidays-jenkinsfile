@@ -13,7 +13,7 @@ node {
             extensions: [
                 [$class: 'CheckoutOption', timeout: 30] ,
                 [$class: 'CloneOption', timeout: 30] ,
-                [$class: 'PruneStaleBranch'] //,
+                [$class: 'PruneStaleBranch'],
                 [$class: 'CleanCheckout']
             ],
             userRemoteConfigs: [
