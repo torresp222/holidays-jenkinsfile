@@ -36,7 +36,7 @@ node {
                 def base_path = "/var/www"
                 sh "ssh $user@$host \"sudo install -d -o $user -g $user -m 775 $base_path/releasesback/${BUILD_ID}/\""
                 sh "cd ${WORKSPACE}/back && tar czf ${BUILD_ID}.tar.gz *"
-                sh "scp -r ${BUILD_ID}.tar.gz $user@$host:$base_path/releasesback/${BUILD_ID}/"
+                sh "scp -r ${WORKSPACE}/back/${BUILD_ID}.tar.gz $user@$host:$base_path/releasesback/${BUILD_ID}/"
                 sh "ssh $user@$host \"tar -xzvf $base_path/releasesback/${BUILD_ID}/${BUILD_ID}.tar.gz -C $base_path/releasesback/${BUILD_ID}/\""
             }
          //}
@@ -76,7 +76,7 @@ node {
                 def base_path = "/var/www"
                 sh "ssh $user@$host \"sudo install -d -o $user -g $user -m 775 $base_path/releases/${BUILD_ID}/\""
                 sh "cd ${WORKSPACE}/front && tar czf ${BUILD_ID}.tar.gz *"
-                sh "scp -r ${BUILD_ID}.tar.gz $user@$host:$base_path/releases/${BUILD_ID}/"
+                sh "scp -r ${WORKSPACE}/front/${BUILD_ID}.tar.gz $user@$host:$base_path/releases/${BUILD_ID}/"
                 sh "ssh $user@$host \"tar -xzvf $base_path/releases/${BUILD_ID}/${BUILD_ID}.tar.gz -C $base_path/releases/${BUILD_ID}/\""
             }
     }
