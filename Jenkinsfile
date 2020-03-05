@@ -27,7 +27,7 @@ parallel("exec 1": {
             } 
             script{
                 sh 'pwd'
-                sh "echo ${JENKINS_PATH}"
+                sh "TEST=`pwd` && echo $TEST"
             }
           }
          }
