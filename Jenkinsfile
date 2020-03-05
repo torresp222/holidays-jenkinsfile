@@ -25,6 +25,7 @@ node {
         ])
         
         script{
+            sh 'mkdir another-prueba'
             sh 'cd another-prueba'
         }
 
