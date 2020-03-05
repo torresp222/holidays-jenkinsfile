@@ -2,7 +2,10 @@
 parallel("exec 1": {    
     node {
         ws("${env.JOB_NAME}-1") {
-        stage('Checkout') { // for display purposes
+        environment {
+           JENKINS_PATH = sh(script: 'pwd', , returnStdout: true).trim()  
+        }
+        stage('Checkout') { // for display purposes     
             // Get some code from a GitHub repository
             checkout ([
                 $class: 'GitSCM',
@@ -20,13 +23,13 @@ parallel("exec 1": {
                     ]
                 ]
             ])
-            }   
+            }  
+            stage('Borrar checkout'){
+                script{
+                    sh 'rm -rf ${JENKINS_PATH}'
+                }
+            }
           }
-        stage('Borrar checkout') {
-              script{
-                  sh 'rm -rf ${env.JOB_NAME}-1'
-              }
-           }
          }
         },
             "exec 2": {
