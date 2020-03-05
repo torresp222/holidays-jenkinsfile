@@ -2,12 +2,8 @@
 parallel("exec 1": {    
     node {
         ws("${env.JOB_NAME}-1") {
-        
         stage('Checkout') { // for display purposes     
             // Get some code from a GitHub repository
-        environment {
-           JENKINS_PATH = sh(script: 'pwd', , returnStdout: true).trim()  
-        }
             checkout ([
                 $class: 'GitSCM',
                 branches: [[name: '*/es6']],
@@ -24,12 +20,11 @@ parallel("exec 1": {
                     ]
                 ]
             ])
+         def workspace = env.WORKSPACE
+         echo "workspace directory is ${workspace}"
             } 
-            script{
-                sh 'pwd'
-                sh "TEST=`pwd` && echo $TEST"
-            }
           }
+         
          }
         },
             "exec 2": {
