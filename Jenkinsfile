@@ -13,8 +13,8 @@ node {
             extensions: [
                 [$class: 'CheckoutOption', timeout: 30] ,
                 [$class: 'CloneOption', timeout: 30] ,
-                [$class: 'PruneStaleBranch'],
-                [$class: 'CleanCheckout']
+                [$class: 'PruneStaleBranch'] //,
+               // [$class: 'CleanCheckout']
             ],
             userRemoteConfigs: [
                 [
@@ -24,10 +24,10 @@ node {
             ]
         ])
         
-        script{
+       /* script{
             sh 'mkdir another-prueba'
             sh 'cd another-prueba'
-        }
+        }*/
 
         checkout ([
             $class: 'GitSCM',
