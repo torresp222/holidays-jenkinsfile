@@ -35,9 +35,9 @@ parallel("exec 1": {
                 sh "ssh $user@$host \"tar xvf $base_path/releasesback/${BUILD_ID}/${BUILD_ID}.tar.gz\""
             }
          }
-         stage('Borrar checkout'){
+         /*stage('Borrar checkout'){
             sh "rm -rf /var/lib/jenkins/${env.JOB_NAME}-1"
-          }
+          }*/
          }
         },
             "exec 2": {
