@@ -2,7 +2,7 @@
 parallel("exec 1": {    
     node {
         ws("${env.JOB_NAME}-1") {
-        //def jenkinspath = env.WORKSPACE
+        def jenkinspath = env.WORKSPACE
         stage('Checkout') { // for display purposes     
             // Get some code from a GitHub repository
             checkout ([
@@ -23,12 +23,12 @@ parallel("exec 1": {
             ])
          def workspace = env.WORKSPACE
          echo "workspace directory is ${workspace}"
-            } 
-          }
-        stage('Borrar checkout'){
-            def jenkinspath = env.WORKSPACE
-            sh "rm -rf ${jenkinspath}"
-        }
+            }
+         stage('Borrar checkout'){
+           sh "rm -rf ${jenkinspath}"
+         }
+            
+         }
          }
         },
             "exec 2": {
