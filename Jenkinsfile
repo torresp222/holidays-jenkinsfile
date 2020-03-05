@@ -26,7 +26,7 @@ parallel("exec 1": {
             } 
           }
         stage('Borrar checkout'){
-            sh "rm -rf /var/lib/jenkins/prueba-jenkinsfile-1"
+            sh "rm -rf ${jenkinspath}"
         }
          }
         },
