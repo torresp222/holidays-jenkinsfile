@@ -22,9 +22,12 @@ parallel("exec 1": {
             ])
          def workspace = env.WORKSPACE
          echo "workspace directory is ${workspace}"
+         
             } 
           }
-         
+        stage('Borrar workspace'){
+           sh "rm -rf ${workspace}"
+        }
          }
         },
             "exec 2": {
