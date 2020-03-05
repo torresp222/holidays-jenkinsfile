@@ -1,10 +1,10 @@
 #!groovy?
 node {
-    stage('Create directory'){
+    /*stage('Create directory'){
         script{
             sh 'mkdir ../another-prueba'
         }
-    }
+    }*/
     stage('Checkout') { // for display purposes
         // Get some code from a GitHub repository
         checkout ([
@@ -25,7 +25,7 @@ node {
         ])
         
         script{
-            sh 'cd ../another-prueba'
+            sh 'cd another-prueba'
         }
 
         checkout ([
