@@ -1,7 +1,7 @@
 #!groovy?
 parallel("stream 1": {    
     node {
-        ws("${env.JOB_NAME}-stream1") {
+        ws("${env.JOB_NAME}-1") {
         stage('Checkout') { // for display purposes
             // Get some code from a GitHub repository
             checkout ([
@@ -26,7 +26,7 @@ parallel("stream 1": {
         },
             "stream 2": {
                 node {
-                    ws("${env.JOB_NAME}-stream2") {
+                    ws("${env.JOB_NAME}-2") {
                     stage('Checkout') {
                          checkout ([
                             $class: 'GitSCM',
