@@ -24,14 +24,14 @@ node {
             ]
         ])
         
-       /* script{
+        script{
             sh 'mkdir another-prueba'
             sh 'cd another-prueba'
-        }*/
+        }
 
         checkout ([
             $class: 'GitSCM',
-           branches: [[name: '/master']],
+           branches: [[name: '*/master']],
            extensions: [
                [$class: 'CheckoutOption', timeout: 30] ,
                [$class: 'CloneOption', timeout: 30] ,
