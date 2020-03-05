@@ -2,9 +2,9 @@
 parallel("exec 1": {    
     node {
         def pwd = env.WORKSPACE
-        def user = "vagrant"
-        def host = "10.145.5.249"
-        def base_path = "/var/www"
+       // def user = "vagrant"
+        //def host = "10.145.5.249"
+        //def base_path = "/var/www"
         ws("${env.JOB_NAME}-1") {
         def workspace = env.WORKSPACE
            stage('Checkout') { // for display purposes     
@@ -30,6 +30,9 @@ parallel("exec 1": {
                 echo "workspace directory is ${workspace}"
                 }
             stage('Build'){
+                def user = "vagrant"
+                def host = "10.145.5.249"
+                def base_path = "/var/www"
                 sh "cd ${workspace} && tar czf ${BUILD_ID}.tar.gz *"
                 sh "scp -r ${BUILD_ID}.tar.gz $user@$host:$base_path/releasesback/${BUILD_ID}/"
                 sh "ssh $user@$host \"tar xvf $base_path/releasesback/${BUILD_ID}/${BUILD_ID}.tar.gz\""
