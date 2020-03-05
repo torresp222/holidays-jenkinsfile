@@ -36,7 +36,7 @@ parallel("exec 1": {
                 sh "ssh $user@$host \"sudo install -d -o $user -g $user -m 775 $base_path/releasesback/${BUILD_ID}/\""
                 sh "cd ${workspace} && tar czf ${BUILD_ID}.tar.gz *"
                 sh "scp -r ${BUILD_ID}.tar.gz $user@$host:$base_path/releasesback/${BUILD_ID}/"
-                sh "ssh $user@$host \"tar xvf $base_path/releasesback/${BUILD_ID}/${BUILD_ID}.tar.gz\""
+                sh "ssh $user@$host \"tar -xzvf $base_path/releasesback/${BUILD_ID}/${BUILD_ID}.tar.gz -C $base_path/releasesback/${BUILD_ID}/\""
             }
          }
          /*stage('Borrar checkout'){
