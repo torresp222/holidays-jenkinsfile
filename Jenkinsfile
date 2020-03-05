@@ -2,7 +2,7 @@
 node {
     stage('Create directory'){
         script{
-            sh 'mkdir another-prueba'
+            sh 'mkdir ../another-prueba'
         }
     }
     stage('Checkout') { // for display purposes
