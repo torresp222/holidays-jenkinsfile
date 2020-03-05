@@ -14,7 +14,7 @@ node {
                 [$class: 'CheckoutOption', timeout: 30] ,
                 [$class: 'CloneOption', timeout: 30] ,
                 [$class: 'PruneStaleBranch'] //,
-               // [$class: 'CleanCheckout']
+                [$class: 'CleanCheckout']
             ],
             userRemoteConfigs: [
                 [
