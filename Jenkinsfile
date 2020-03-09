@@ -81,6 +81,10 @@ node {
                 sh "scp -r ${WORKSPACE}/front/${BUILD_ID}.tar.gz $user@$host:$base_path/releases/${BUILD_ID}/"
                 sh "ssh $user@$host \"tar -xzvf $base_path/releases/${BUILD_ID}/${BUILD_ID}.tar.gz -C $base_path/releases/${BUILD_ID}/\""
             }
+        
+           stage('Borrar workspace'){
+                sh "rm -rf ${WORKSPACE}"
+            }
     }
                 //    }
               //  }
