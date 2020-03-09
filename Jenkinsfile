@@ -31,13 +31,15 @@ node {
                 //echo "workspace directory is ${workspace}"
                 }
            stage('Build-back'){
-                def user = "vagrant"
-                def host = "10.145.5.249"
-                def base_path = "/var/www"
-                sh "ssh $user@$host \"sudo install -d -o $user -g $user -m 775 $base_path/releasesback/${BUILD_ID}/\""
+                user = "vagrant"
+                host = "10.145.5.249"
+                base_path = "/var/www"
+                project = "app-pro"
+                sh 'ssh '$user'@'$host' \"APPBACK=`pm2 pid app-pro` && if [ -n "$APPBACK" ]; then pm2 delete '$project'; else echo no hay servicio; fi\"'
+                sh 'ssh '$user'@'$host' \"sudo install -d -o $user -g $user -m 775 $base_path/releasesback/'${BUILD_ID}'/\"'
                 sh "cd ${WORKSPACE}/back && tar czf ${BUILD_ID}.tar.gz *"
-                sh "scp -r ${WORKSPACE}/back/${BUILD_ID}.tar.gz $user@$host:$base_path/releasesback/${BUILD_ID}/"
-                sh "ssh $user@$host \"tar -xzvf $base_path/releasesback/${BUILD_ID}/${BUILD_ID}.tar.gz -C $base_path/releasesback/${BUILD_ID}/\""
+                sh 'scp -r '${WORKSPACE}'/back/'${BUILD_ID}'.tar.gz '$user'@'$host':'$base_path'/releasesback/'${BUILD_ID}'/'
+                sh 'ssh '$user'@'$host' \"tar -xzvf '$base_path'/releasesback/'${BUILD_ID}'/'${BUILD_ID}'.tar.gz -C '$base_path'/releasesback/'${BUILD_ID}'/\"'
             }
          //}
          /*stage('Borrar checkout'){
