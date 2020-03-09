@@ -35,7 +35,7 @@ node {
                 host = "10.145.5.249"
                 base_path = "/var/www"
                 project = "app-pro"
-                sh "ssh $user@$host \"APPBACK=`pm2 pid app-pro` && if [ -n "$APPBACK" ]; then pm2 delete '$project'; else echo no hay servicio; fi\""
+                sh """ssh $user@$host \"APPBACK=`pm2 pid app-pro` && if [ -n "$APPBACK" ]; then pm2 delete '$project'; else echo no hay servicio; fi\""""
                 sh 'ssh '$user'@'$host' \"sudo install -d -o $user -g $user -m 775 $base_path/releasesback/'${BUILD_ID}'/\"'
                 sh "cd ${WORKSPACE}/back && tar czf ${BUILD_ID}.tar.gz *"
                 sh 'scp -r '${WORKSPACE}'/back/'${BUILD_ID}'.tar.gz '$user'@'$host':'$base_path'/releasesback/'${BUILD_ID}'/'
