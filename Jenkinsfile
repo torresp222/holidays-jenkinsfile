@@ -82,9 +82,7 @@ node {
                 sh "ssh $user@$host \"tar -xzvf $base_path/releases/${BUILD_ID}/${BUILD_ID}.tar.gz -C $base_path/releases/${BUILD_ID}/\""
             }
         
-           stage('Borrar workspace'){
-                sh "rm -rf ${WORKSPACE}"
-            }
+           
     }
                 //    }
               //  }
